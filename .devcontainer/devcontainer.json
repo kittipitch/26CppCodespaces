@@ -1,0 +1,32 @@
+{
+  "name": "C/C++ Template",
+  "image": "mcr.microsoft.com/devcontainers/cpp:1-ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "chat.disableAIFeatures": true,
+        "github.copilot.enable": {
+          "*": false
+        },
+        "github.copilot.chat.enabled": false,
+        "github.copilot.editor.enableAutoCompletions": false,
+        "workbench.secondarySideBar.visible": false,
+        "C_Cpp.default.compilerPath": "/usr/bin/g++"
+      },
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "chocolatedesue.modern-pdf-preview"
+      ],
+      "extensions.unwanted": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ]
+    }
+  },
+  "postCreateCommand": "chmod +x .devcontainer/*.sh && echo 'C++ Codespace ready!'",
+  "postStartCommand": "nohup .devcontainer/autosync.sh > /tmp/autosync.log 2>&1 &"
+}
